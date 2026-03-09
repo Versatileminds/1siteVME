@@ -86,7 +86,7 @@ const RotatingGallery = ({ images = [] }) => {
           key={validImages[index]}
           src={validImages[index]}
           alt="Artist gallery"
-          className="w-full h-full object-cover transition-opacity duration-500"
+          className="w-full h-full object-cover object-top transition-opacity duration-500"
         />
         <div className="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-2 py-1 rounded-full">
           {index + 1} / {validImages.length}
@@ -100,7 +100,7 @@ const RotatingGallery = ({ images = [] }) => {
               onClick={() => setIndex(i)}
               className={`border rounded-md overflow-hidden transition-all ${i === index ? 'border-[#C00000] shadow shadow-[#C00000]/40' : 'border-white/10 hover:border-white/30'}`}
             >
-              <img src={img} alt={`Gallery ${i + 1}`} className="w-full h-14 object-cover" />
+              <img src={img} alt={`Gallery ${i + 1}`} className="w-full h-14 object-cover object-top" />
             </button>
           ))}
         </div>
@@ -481,7 +481,7 @@ const LandingPage = () => {
                 <img
                   src={artist.image}
                   alt={artist.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
@@ -647,7 +647,7 @@ const ArtistProfile = () => {
         <img
           src={heroImages[heroIndex]}
           alt={profileArtist.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-[#111111]" />
 
@@ -665,7 +665,7 @@ const ArtistProfile = () => {
           <img
             src={primaryImage}
             alt={profileArtist.name}
-            className="w-28 h-28 sm:w-40 sm:h-40 rounded-xl object-cover border-4 border-[#C00000] shadow-2xl shadow-[#C00000]/50"
+            className="w-28 h-28 sm:w-40 sm:h-40 rounded-xl object-cover object-top border-4 border-[#C00000] shadow-2xl shadow-[#C00000]/50"
           />
 
           <div className="flex-1">
@@ -933,7 +933,7 @@ const ArtistProfile = () => {
                         <img
                           src={connection.image}
                           alt={connection.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                           <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
@@ -1061,7 +1061,7 @@ const ArtistsPage = () => {
                 <img
                   src={artist.image}
                   alt={artist.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
                 {artist.type === 'ai' && (
