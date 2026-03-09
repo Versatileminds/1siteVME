@@ -146,13 +146,13 @@ const ARTISTS = [
   },
   {
     id: 2,
-    name: 'NOX',
-    slug: 'nox',
+    name: 'daBOTS',
+    slug: 'dabots',
     type: 'ai',
     image: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400&h=400&fit=crop',
     heroImages: ['https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400&h=400&fit=crop'],
     gallery: [],
-    genre: 'Electronic',
+    genre: 'Electronic / AI Artistry',
     followers: '89K',
     verified: true
   },
@@ -183,11 +183,24 @@ const ARTISTS = [
     role: 'CEO, Versatile Minds Entertainment'
   },
   { id: 5, name: 'Stoka P.', slug: 'stoka-p', type: 'human', image: '/Stoka.P.jpeg', heroImages: ['/Stoka.P.jpeg'], gallery: [], genre: 'Hip-Hop', followers: '178K', verified: true },
-  { id: 6, name: 'Beanut', slug: 'beanut', type: 'human', image: '/beanut0.png', heroImages: ['/beanut0.png', '/Beanut1.jpeg'], gallery: ['/Beanut1.jpeg'], genre: 'Hip-Hop / R&B / Soul', followers: '210K', verified: true }
+  { id: 6, name: 'Beanut', slug: 'beanut', type: 'human', image: '/beanut0.png', heroImages: ['/beanut0.png', '/Beanut1.jpeg'], gallery: ['/Beanut1.jpeg'], genre: 'Hip-Hop / R&B / Soul', followers: '210K', verified: true },
+  {
+    id: 7,
+    name: 'Wade Is Legit',
+    slug: 'wade-is-legit',
+    type: 'producer',
+    image: '/wade.jpeg',
+    heroImages: ['/wade.jpeg'],
+    gallery: ['/wade.jpeg'],
+    genre: 'Southern Soul / R&B / Beats',
+    followers: '52K',
+    verified: true,
+    role: 'Producer, Versatile Minds Ent'
+  }
 ];
 
 const TRACKS = [
-  { id: 1, title: 'Midnight Protocol', artist: 'NOX', duration: '3:45', durationSec: 225, cover: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=300&h=300&fit=crop' },
+  { id: 1, title: 'Midnight Protocol', artist: 'daBOTS', duration: '3:45', durationSec: 225, cover: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=300&h=300&fit=crop' },
   { id: 2, title: 'Underground Kings', artist: 'Lil Daddy', duration: '4:12', durationSec: 252, cover: '/artist-lildaddy.jpg' },
   { id: 3, title: 'Velvet Nights', artist: 'S.Dot', duration: '3:28', durationSec: 208, cover: '/artist-ShaunAllen.PNG' }
 ];
@@ -220,7 +233,8 @@ const SYNDICATE_CONNECTIONS = [
   { id: 6, name: 'VME Studios', image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=200&h=200&fit=crop', relation: 'Label' },
   { id: 7, name: 'DJ Nexus', image: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=200&h=200&fit=crop', relation: 'DJ' },
   { id: 8, name: 'Visual Core', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&h=200&fit=crop', relation: 'Visuals' },
-  { id: 9, name: 'The Archive', image: 'https://images.unsplash.com/photo-1614680376408-81e91ffe3db7?w=200&h=200&fit=crop', relation: 'Curator' }
+  { id: 9, name: 'The Archive', image: 'https://images.unsplash.com/photo-1614680376408-81e91ffe3db7?w=200&h=200&fit=crop', relation: 'Curator' },
+  { id: 10, name: 'Wade Is Legit', image: '/VME_logo_trn.svg', relation: 'Producer' }
 ];
 
 // ─── Format Time Helper ───
@@ -1369,6 +1383,8 @@ const VMEPlatform = () => (
 );
 
 export default VMEPlatform;
+
+
 
 
 
