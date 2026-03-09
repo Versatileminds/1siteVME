@@ -36,6 +36,33 @@ const TrackSkeleton = () => (
   </div>
 );
 
+// ─── Spotify Embeds ───
+const SpotifyEmbeds = ({ slug }) => {
+  const embedsForArtist = SPOTIFY_EMBEDS.filter((e) => e.id === slug);
+  const embeds = embedsForArtist.length ? embedsForArtist : SPOTIFY_EMBEDS;
+
+  return (
+    <div className="space-y-4">
+      {embeds.map((embed) => (
+        <div key={embed.src} className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
+          <iframe
+            title={`Spotify embed ${embed.id}`}
+            data-testid="embed-iframe"
+            style={{ borderRadius: '12px' }}
+            src={embed.src}
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allowFullScreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
+
 // ─── Simple Auto-Rotating Gallery ───
 const RotatingGallery = ({ images = [] }) => {
   const validImages = images.filter(Boolean);
@@ -175,6 +202,13 @@ const MERCH = [
   { id: 1, name: 'VME Syndicate Hoodie', price: 85, image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop' },
   { id: 2, name: 'NOX Digital Artifact NFT', price: 150, image: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=400&h=400&fit=crop' },
   { id: 3, name: 'Limited Edition Vinyl Pack', price: 120, image: 'https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400&h=400&fit=crop' }
+];
+
+const SPOTIFY_EMBEDS = [
+  { id: 'atf', src: 'https://open.spotify.com/embed/artist/5XEn3TNxYLn7uFrqbMGAaB?utm_source=generator' },
+  { id: 'lil-daddy', src: 'https://open.spotify.com/embed/artist/0k5pgSCJJTeYgVHdzXnCd6?utm_source=generator' },
+  { id: 's-dot', src: 'https://open.spotify.com/embed/artist/3XMe3Y7jfqGnQJ1XY20Gsw?utm_source=generator' },
+  { id: 'beanut', src: 'https://open.spotify.com/embed/artist/4m7bbAvdrB9RxfPsbfMgH1?utm_source=generator' }
 ];
 
 const SYNDICATE_CONNECTIONS = [
@@ -800,33 +834,9 @@ const ArtistProfile = () => {
           {/* Main Content */}
           <div className="lg:col-span-2">
             {activeTab === 'music' && (
-              <div className="space-y-3">
-                <h3 className="text-xl sm:text-2xl font-black text-white mb-4 sm:mb-6">LATEST TRACKS</h3>
-                {TRACKS.map((track, index) => (
-                  <div
-                    key={track.id}
-                    className="bg-white/5 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/10 hover:border-[#C00000]/50 transition-all group cursor-pointer"
-                  >
-                    <div className="flex items-center gap-2 sm:gap-4">
-                      <div className="text-gray-500 font-bold w-5 sm:w-6 text-sm sm:text-base">{index + 1}</div>
-                      <img
-                        src={track.cover}
-                        alt={track.title}
-                        className="w-10 h-10 sm:w-14 sm:h-14 rounded object-cover"
-                      />
-                      <div className="flex-1 min-w-0">
-                        <h4 className="text-white font-bold text-sm sm:text-base truncate group-hover:text-[#C00000] transition-colors">
-                          {track.title}
-                        </h4>
-                        <p className="text-gray-400 text-xs sm:text-sm">{track.artist}</p>
-                      </div>
-                      <div className="text-gray-400 text-xs sm:text-sm">{track.duration}</div>
-                      <button className="text-gray-400 hover:text-[#C00000] transition-colors opacity-0 group-hover:opacity-100">
-                        <Play className="w-4 h-4 sm:w-5 sm:h-5" />
-                      </button>
-                    </div>
-                  </div>
-                ))}
+              <div className="space-y-4">
+                <h3 className="text-xl sm:text-2xl font-black text-white">SPOTIFY</h3>
+                <SpotifyEmbeds slug={profileArtist.slug} />
               </div>
             )}
 
@@ -1359,3 +1369,6 @@ const VMEPlatform = () => (
 );
 
 export default VMEPlatform;
+
+
+
